@@ -152,6 +152,6 @@ def webhook():
 
 if __name__=='__main__':
 	if PORT is not None:
-		app.run(debug=True, port=PORT)
+		app.run(debug=True, threaded=True, port=PORT)
 	else:
-		app.run(debug=True)
+		app.run(debug=True, threaded=True)
