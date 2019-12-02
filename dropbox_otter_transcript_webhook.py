@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 
 from dropbox import Dropbox
 from dropbox.files import DeletedMetadata, FolderMetadata, WriteMode
-from flask import abort, Flask, redirect, render_template, Response, request, session, url_for
+from flask import abort, Flask, send_from_directory, Response, request
 import redis
 
 from environs import Env
@@ -121,6 +121,10 @@ def process_files(account):
 @app.route('/')
 def index():
 	return "OK"
+
+@app.route('/robots.txt')
+def static_from_root():
+	return send_from_directory(app.static_folder, request.path[1:])
 
 @app.route('/webhook', methods=['GET'])
 def challenge():

@@ -5,3 +5,4 @@ redis==3.3.11
 environs==6.1.0
 botocore==1.12.86
 boto3==1.9.86
+uwsgi==2.0.18
